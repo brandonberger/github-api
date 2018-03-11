@@ -1,30 +1,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <?php
-//
-// $user = curl_init('https://api.github.com/users/brandonberger');
-// $user_repos = curl_init('https://api.github.com/users/brandonberger/repos');
-// $agent = 'brandonberger';
-//
-// // Set Agent
-// curl_setopt($user, CURLOPT_USERAGENT, $agent);
-// // Set curl_exec to return the response
-// curl_setopt($user, CURLOPT_RETURNTRANSFER, 1);
-// // Executes the curl session and stores reponse as var
-// $response = curl_exec($user);
-// // JSON Response to PHP Array
-// $array = json_decode($response, TRUE);
-//
-// echo $array['login'];
-//
-//
-// echo prettyArray($array);
-//
-// function prettyArray(array $arr) : void {
-//     highlight_string("<?php \n" . var_export($arr, true) . ";\n?\>");
-// }
 
-// echo $response;
-
+/**
+ * to run:
+ * php -s localhost:8000
+ * visit localhost:8000
+ */
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -56,7 +37,7 @@ foreach ($repositories as $repo) { ?>
     <div class="card" style="width: 13rem; height:150px; display:inline-block; margin:15px;">
         <div class="card-body">
             <h5 style="text-overflow: ellipsis;white-space: nowrap;overflow:hidden;" class="card-title"><?=$repo['name']?></h5>
-            <p style="font-size:.7em;min-height:30px;" class="card-text"><?=$repo['description']?></p>
+            <p style="font-size:.7em;min-height:30px;text-overflow: ellipsis;white-space: nowrap;overflow:hidden;" class="card-text"><?=$repo['description']?></p>
             <a target="_blank" href="<?=$repo['html_url']?>" style="text-overflow: ellipsis;white-space: nowrap;overflow:hidden;font-size:.7em;max-width:100%;min-width:100%;" class="btn btn-primary"><?=$repo['full_name']?></a>
         </div>
     </div>
